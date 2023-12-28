@@ -1,2 +1,9 @@
-@import url('./reset.css');
-@import url('./1-gallery.css');
+body {
+  padding: 20px;
+}
+
+a {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 12px;
+}

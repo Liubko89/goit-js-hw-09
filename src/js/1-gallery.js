@@ -89,8 +89,9 @@ function createMarkup(arr) {
     .join('');
 }
 
-const gallery = new SimpleLightbox('.gallery a');
-
-gallery.on('nextImageLoaded.simplelightbox', function () {
-  console.log(this.firstElementChild.alt);
+const gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
 });
+
+// gallery.on('nextImageLoaded.simplelightbox');
