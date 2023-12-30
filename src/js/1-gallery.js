@@ -1,3 +1,7 @@
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -63,11 +67,6 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm';
-
-import 'simplelightbox/dist/simple-lightbox.css';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const container = document.querySelector('.gallery');
 
