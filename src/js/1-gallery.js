@@ -64,7 +64,7 @@ const images = [
   },
 ];
 
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm.js';
+import SimpleLightbox from './simplelightbox/dist/simple-lightbox.esm.js';
 
 import 'simplelightbox/dist/simple-lightbox.css';
 import 'simplelightbox/dist/simple-lightbox.min.css';
