@@ -1,17 +1,17 @@
 const STORAGE_KEY = 'feedback-form-state';
 const feedbackForm = document.querySelector('.feedback-form');
-const input = document.querySelector('input');
-const textarea = document.querySelector('textarea');
+const input = feedbackForm.elements.email;
+const textarea = feedbackForm.elements.message;
 
 feedbackForm.addEventListener('input', handleForm);
 feedbackForm.addEventListener('submit', handleSubmit);
 populateForm();
 
-function handleForm() {
+function handleForm(event) {
   const feedbackStorage = {};
 
-  feedbackStorage.email = `${input.value.trim()}`;
-  feedbackStorage.message = `${textarea.value.trim()}`;
+  feedbackStorage.email = event.currentTarget.elements.email.value.trim();
+  feedbackStorage.message = event.currentTarget.elements.message.value.trim();
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(feedbackStorage));
 }
@@ -26,10 +26,15 @@ function populateForm() {
 
 function handleSubmit(event) {
   event.preventDefault();
-  const submitInfo = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (submitInfo) {
-    console.log(submitInfo);
+  const email = event.currentTarget.elements.email.value.trim();
+  const message = event.currentTarget.elements.message.value.trim();
+  if (email === '' || message === '') {
+    alert('Please fill in all fields');
+    return;
   }
+
+  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+
   localStorage.removeItem(STORAGE_KEY);
-  feedbackForm.reset();
+  event.target.reset();
 }
